@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="desdription" content="ツイッター投稿用の文字数カウンターサイト">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href= "css/stylesheet.css">   
+
+    <title>ツイッター投稿用文字数カウンター</title>
+  </head>
+  <body>
+    <header>
+      <h1>Twitter下書き＆<br class="title_br">文字数カウント</h1>
+    </header>
+
+    <section class="lead">
+      <div class="container">
+        <p>・Twitterの下書きや文字数カウント用です。
+        <br>・投稿内にリンク（URL）を含む場合はURLの数を選択してください。
+        <br><span class="indent annotation">※URLは1つにつき11.5文字としてカウントされます。</span></p>
+        <p class="indent url_num">URLの数<input id="input_url_num" type="number" value="0" min="0" max="12"></p>
+      </div>
+    </section>
+    
+    <section class="main">
+      <div class="container">
+        <form action="/" method="POST">
+          <label for="article"></label>    
+          <textarea name="article" id="textarea" cols="40" rows="10" placeholder="ここに入力"></textarea>          
+          <div class="container2">
+            <p class="word_count"><span id="counter">0</span>文字 / 140文字</p>
+            <div class="btn_set">
+              <button class="btn" id="btn_copy" type="button">コピー</button>
+              <button class="btn" id="btn_preview" type="button" name="action" value="プレビュー">プレビュー</button>
+            </div>       
+          </div>
+        </form>
+    
+        <!-- <form action="/" method="GET"> -->
+        <div class="reset">
+          <button id="reset_btn">リセット</button>
+        </div>
+        <!-- </form> -->
+      </div>
+    </section>
+    
+    <!-- プレビュー時のマスク -->
+    <div id="mask" class="hidden"></div>
+        
+    <section id="preview" class="hidden">
+      <div class="tweet_view">
+        <div class="user_icon">
+          <img src="image/twitter.jpeg" alt="" height="48" width="48">
+        </div>
+        <div id="preview_txt_area">
+          <p class="user">ユーザー<span class="user_id"> @XXX・1分</span></p>
+          <!-- テキストエリアに入力した内容はここに表示 -->
+          <p id="preview_txt"></p>
+          <div id="icon_chunk">
+            <img class="mini_icon" src="image/balloon.jpeg" alt="" height="16" width="16">
+            <img class="mini_icon" src="image/retweet2.png" alt="" height="24" width="20">
+            <img class="mini_icon heart" src="image/heart.jpeg" alt="" height="15" width="15">
+          </div>
+        </div>
+      </div>
+      <div id="close">
+        閉じる
+      </div>
+    </section>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
